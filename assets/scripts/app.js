@@ -3,7 +3,9 @@ class Tooltip {}
 class ProjectItem {}
 
 class ProjectList {
-  constructor(type) {}
+  constructor(type) {
+    const prjItems = document.querySelectorAll(`#${type}-projects li`);
+  }
 }
 
 class App {
@@ -14,4 +16,4 @@ class App {
   }
 }
 
-App.static();
+App.init();
