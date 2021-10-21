@@ -72,6 +72,10 @@ class ProjectItem {
     if (this.hasActiveTooltip) {
       return;
     }
+    const projectElement = document.getElementById(this.id);
+    projectElement.dataset.Mayank = 'hmmm'
+    console.log(projectElement.dataset.Mayank);
+    console.log(projectElement.dataset)
     const tooltip = new Tooltip(() => {
       this.hasActiveTooltip = false;
     });
@@ -84,7 +88,7 @@ class ProjectItem {
     const moreInfoBtn = projectItemElement.querySelector(
       'button:first-of-type'
     );
-    moreInfoBtn.addEventListener('click', this.showMoreInfoHandler);
+    moreInfoBtn.addEventListener('click', this.showMoreInfoHandler.bind(this));
   }
 
   connectSwitchButton(type) {
@@ -97,6 +101,7 @@ class ProjectItem {
       this.updateProjectListsHandler.bind(null, this.id)
     );
   }
+
 
   update(updateProjectListsFn, type) {
     this.updateProjectListsHandler = updateProjectListsFn;
