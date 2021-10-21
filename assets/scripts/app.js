@@ -74,11 +74,10 @@ class ProjectItem {
       return;
     }
     const projectElement = document.getElementById(this.id);
-    console.log(projectElement.dataset)
-    const toolkittext = projectElement.dataset.extraInfo;
+    const tooltipText = projectElement.dataset.extraInfo;
     const tooltip = new Tooltip(() => {
       this.hasActiveTooltip = false;
-    }, toolkittext);
+    }, tooltipText);
     tooltip.attach();
     this.hasActiveTooltip = true;
   }
@@ -101,7 +100,6 @@ class ProjectItem {
       this.updateProjectListsHandler.bind(null, this.id)
     );
   }
-
 
   update(updateProjectListsFn, type) {
     this.updateProjectListsHandler = updateProjectListsFn;
