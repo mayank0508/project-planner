@@ -9,6 +9,7 @@ class DOMHelper {
     const element = document.getElementById(elementId);
     const destinationElement = document.querySelector(newDestinationSelector);
     destinationElement.append(element);
+    element.scrollIntoView();
   }
 }
 
@@ -54,10 +55,10 @@ class Tooltip extends Component {
     const tooltipElement = document.createElement('div');
     tooltipElement.className = 'card';
     tooltipElement.textContent = this.text;
-    
-    const hostElPosLeft = this.hostElement.offsetLeft;
-    const hostElPosTop = this.hostElement.offsetTop;
-    const hostElHeight = this.hostElement.clientHeight;
+
+    const hostElPosLeft = this.hostElement.offsetLeft; // gives the cordinate of the left of the tooltip
+    const hostElPosTop = this.hostElement.offsetTop; // gives the cordinate of the top of the tooltip
+    const hostElHeight = this.hostElement.clientHeight; // gives the height of the tooltip
     const parentElementScrolling = this.hostElement.parentElement.scrollTop;
 
     const x = hostElPosLeft + 20;
