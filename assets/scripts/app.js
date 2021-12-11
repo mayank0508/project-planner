@@ -9,7 +9,7 @@ class DOMHelper {
     const element = document.getElementById(elementId);
     const destinationElement = document.querySelector(newDestinationSelector);
     destinationElement.append(element);
-    element.scrollIntoView({behavior:"smooth"}); // this is how you controll scrolling from inside the js
+    element.scrollIntoView({ behavior: 'smooth' }); // this is how you controll scrolling from inside the js
   }
 }
 
@@ -54,7 +54,10 @@ class Tooltip extends Component {
   create() {
     const tooltipElement = document.createElement('div');
     tooltipElement.className = 'card';
-    tooltipElement.textContent = this.text;
+    const tooltipTemplate = document.getElementById('tooltip');
+    const tooltipBody = document.importNode(tooltipTemplate.content, true); // here true is used to get all the information from the tooltip template
+    tooltipBody.querySelector('p').textContent = this.text;
+    tooltipElement.append(tooltipBody);
 
     const hostElPosLeft = this.hostElement.offsetLeft; // gives the cordinate of the left of the tooltip
     const hostElPosTop = this.hostElement.offsetTop; // gives the cordinate of the top of the tooltip
