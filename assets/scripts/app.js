@@ -170,6 +170,10 @@ class App {
     finishedProjectsList.setSwitchHandlerFunction(
       activeProjectsList.addProject.bind(activeProjectsList)
     );
+    // this is how you can add script in JS dynamically
+    const someScript = document.createElement('script');
+    someScript.textContent = alert('Hey there! Click OK to get started');
+      document.head.appendChild(someScript);
   }
 }
 
