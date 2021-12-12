@@ -177,7 +177,12 @@ class App {
 
 // TImer example
 
-// setTimeout(this.AnalyticsData, 5000); // this code will run after the 5000 ms are over
+const Timer = setTimeout(this.AnalyticsData, 5000); // this code will run after the 5000 ms are over
+
+document.getElementById('stopt-btn').addEventListener('click', () => { // this code is used to stop the timer 
+  clearTimeout(Timer);
+})
+
 
     // // this is how you can add script in JS dynamically
 
