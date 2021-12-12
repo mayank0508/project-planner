@@ -170,10 +170,19 @@ class App {
     finishedProjectsList.setSwitchHandlerFunction(
       activeProjectsList.addProject.bind(activeProjectsList)
     );
-    // this is how you can add script in JS dynamically
-    const someScript = document.createElement('script');
-    someScript.textContent = alert('Hey there! Click OK to get started');
-      document.head.appendChild(someScript);
+    this.AnalyticsData();
+
+    // // this is how you can add script in JS dynamically
+    // const someScript = document.createElement('script');
+    // someScript.textContent = alert('Hey there! Click OK to get started');
+    //   document.head.appendChild(someScript);
+  }
+
+  static AnalyticsData() {
+    const analytics = document.createElement('script');
+    analytics.src = '/assets/scripts/analytics.js';
+    analytics.defer = true;
+    document.head.appendChild(analytics);
   }
 }
 
